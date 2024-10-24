@@ -1,6 +1,7 @@
 # 02-json-server
 
 01) Na raiz do projeto, criar `db/db.json` com o conteúdo abaixo:
+
  ```json
   {
     "cidades": [
@@ -15,20 +16,28 @@
 
 02) Criar o arquivo `server.js`:
    ```js
-      const jsonServer = require('json-server');
-      const cors = require('cors');
+const jsonServer = require('json-server');
+const cors = require('cors');
 
-      const server = jsonServer.create();
-      const router = jsonServer.router('db/db.json'); // Seu arquivo "db/db.json".
-      const middlewares = jsonServer.defaults();
+const server = jsonServer.create();
+const router = jsonServer.router('db/db.json'); // Seu arquivo "db/db.json".
+const middlewares = jsonServer.defaults();
 
-      server.use(cors()); // Habilita CORS (Cross-Origin Resource Sharing).
-      server.use(middlewares);
-      server.use(router);
+server.use(cors()); // Habilita CORS (Cross-Origin Resource Sharing).
+server.use(middlewares);
+server.use(router);
 
-      server.listen(3333, () => {
-        console.log('JSON-Server is running!');
-      });
+// Adiciona a configuração de middleware para CORS (Cross-Origin Resource Sharing).
+server.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*'); // Permite qualquer origem.
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    next();
+  });
+  
+server.listen(3333, () => {
+  console.log('JSON-Server is running!');
+});
    ```
 
 03) Instalar o `Node.js`:  
@@ -37,37 +46,44 @@
    `
 
 04) Verificar a versão instalada do `Node.js`:
+
    ```
    node -v
    ```
 
 05) Atualizar a instalação do `npm`:
+
    ```
    npm install -g npm
    ```
 
 06) Verificar a versão instalada do `npm`:
+
    ```
    npm -v
    ```
 
 07) Instalar o `JSON-Server`:
+
    ```
    npm install -g json-server --save
    ```
 
 08) Verificar a versão instalada do `JSON-Server`:
+
    ```
    json-server --version
    ```
 
-9)  Instalar o middleware `CORS` (`Cross-Origin Resource Sharing`):
+9) Instalar o middleware `CORS` (`Cross-Origin Resource Sharing`):
+
    ```
    npm install cors
    ```
 
-10) A versão do `JSON-Server` no arquivo `package.json` deve ser <mark>"^0.17.0"</mark>. 
+10) A versão do `JSON-Server` no arquivo `package.json` deve ser <mark>"^0.17.0"</mark>.
    Exemplo:
+
    ```json
    {
      "dependencies": {
@@ -76,13 +92,15 @@
      }
    }
    ```
-   
+
 11) Caso não seja essa versão, atualizar arquivo `package.json` como ilustrado acima e executar o comando:
+
    ```
    npm install
    ```
- 
+
 12) Executar o arquivo `server.js`:
+
    ```
    node server.js
    ```
