@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Cidades</title>
+    <script>
+        const urlCidades = "https://reimagined-space-doodle-g45gw5ww47p5cqr5-3333.app.github.dev/cidades"; //'http://localhost:3333/cidades'
+        let cidades = []
+
+        function carregarDadosDoJSONServer() {
+            fetch(urlCidades)
+                .then(function (response) { return response.json() })
+                .then(function (dados) {
+                    cidades = dados
+                    console.log('Dados carregados!')
+                    imprimirDadosDoBancoDeDados()
+                })
+        }
+
+        function imprimirDadosDoBancoDeDados() {
+            let txt = "";
+            let tela = document.getElementById('tela')
+
+            cidades.forEach((cidade) => {
+                txt += `<p>
+                            id: ${cidade.id} <br/>
+                            cidade: <strong>${cidade.cidade}</strong> <br/>
+                            estado: ${cidade.estado} <br/>
+                            População: ${cidade.populacao}
+                        </p> <br/><br/>`
+            })
+            tela.innerHTML = txt;
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="carregarDadosDoJSONServer()">Carregar Lista de Cidades
+</body>
+<div id="tela"></div>
+</body>
+
+</html>
