@@ -6,20 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Cidades</title>
     <script>
-        const urlCidades = "https://01c72ea2-dc83-4f76-b4e6-f998346028e2-00-1fmk7t8gu8uk4.picard.replit.dev/cidades"; //'http://localhost:3333/cidades'
-        let cidades = []
+        const url = "https://didactic-zebra-jj4xw4wwjr76fpvg4-5500.app.github.dev";
+        const urlCidades = "/db/db.json";
 
         function carregarDadosDoJSONServer() {
             fetch(urlCidades)
-                .then(function (response) { return response.json() })
-                .then(function (dados) {
-                    cidades = dados
-                    console.log('Dados carregados!')
-                    imprimirDadosDoBancoDeDados()
+                .then(function(response) { return response.json(); })
+                .then(function(dados) {
+                    cidades = dados.cidades;
+                    console.log('Dados carregados:');
+                    console.log(cidades);
+                    imprimirDadosDoBancoDeDados(cidades)
                 })
         }
 
-        function imprimirDadosDoBancoDeDados() {
+        function imprimirDadosDoBancoDeDados(cidades) {
             let txt = "";
             let tela = document.getElementById('tela')
 
