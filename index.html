@@ -13,7 +13,8 @@
             fetch(urlCidades)
                 .then(function(response) { return response.json(); })
                 .then(function(dados) {
-                    cidades = dados.cidades;
+                    //cidades = dados.cidades;
+                    cidades = dados;
                     console.log('Dados carregados:');
                     console.log(cidades);
                     imprimirDadosDoBancoDeDados(cidades)
