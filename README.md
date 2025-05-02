@@ -1,4 +1,4 @@
-# 02-json-server
+# 03-json-server
 
 01) Na raiz do projeto, criar `db/db.json` com o conteúdo abaixo:
 
