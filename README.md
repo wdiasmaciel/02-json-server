@@ -15,7 +15,7 @@
  ```
 
 02) Criar o arquivo `server.js`:
-   ```js
+```js
 const jsonServer = require('json-server');
 const cors = require('cors');
 
@@ -38,69 +38,60 @@ server.use((req, res, next) => {
 server.listen(3333, () => {
   console.log('JSON-Server is running!');
 });
-   ```
+```
 
 03) Instalar o `Node.js`:  
-   `
-  https://nodejs.org/
-   `
+`
+https://nodejs.org/
+`
 
 04) Verificar a versão instalada do `Node.js`:
-
-   ```
-   node -v
-   ```
+```
+node -v
+```
 
 05) Atualizar a instalação do `npm`:
-
-   ```
-   npm install -g npm
-   ```
+```
+npm install -g npm
+```
 
 06) Verificar a versão instalada do `npm`:
-
-   ```
-   npm -v
-   ```
+```
+npm -v
+```
 
 07) Instalar o `JSON-Server`:
-
-   ```
-   npm install -g json-server --save
-   ```
+```
+npm install -g json-server --save
+```
 
 08) Verificar a versão instalada do `JSON-Server`:
-
-   ```
-   json-server --version
-   ```
+```
+json-server --version
+```
 
 9) Instalar o middleware `CORS` (`Cross-Origin Resource Sharing`):
-
-   ```
-   npm install cors
-   ```
+```
+npm install cors
+```
 
 10) A versão do `JSON-Server` no arquivo `package.json` deve ser <mark>"^0.17.0"</mark>.
-   Exemplo:
-
-   ```json
+Exemplo:
+```json
    {
      "dependencies": {
        "cors": "^2.8.5",
        "json-server": "^0.17.0"
      }
    }
-   ```
+```
 
 11) Caso não seja essa versão, atualizar arquivo `package.json` como ilustrado acima e executar o comando:
-
-   ```
-   npm install
-   ```
+```
+npm install
+```
 
 12) Executar o arquivo `server.js`:
-
-   ```
-   node server.js
-   ```
+```
+node server.js
+```
